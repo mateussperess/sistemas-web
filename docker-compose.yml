@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sistemas-web-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    volumes:
+      # Cria uma pasta chamada "banco_dados" no seu PC e mapeia para onde o SQLite vai salvar o arquivo
+      - ./banco_dados:/app/data
